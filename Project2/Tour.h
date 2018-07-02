@@ -6,8 +6,8 @@ using namespace std;
 class Tour
 {
 	string _way;
-	string _start;
-	string _end;
+	string _startplace;
+	string _endplace;
 	int amountOftourist;
 	int amountOfseats;
 	string price;
@@ -16,6 +16,9 @@ class Tour
 
 public:
 	Tour();
+	friend ostream &operator << (ostream&os, Tour p);
+	friend istream &operator >> (istream&is, Tour p);
+
 	~Tour();
 };
 

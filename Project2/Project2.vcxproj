@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Desktop\Source.cpp" />
+    <ClCompile Include="Hotel.cpp" />
     <ClCompile Include="Tour.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hotel.h" />
     <ClInclude Include="Tour.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
