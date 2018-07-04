@@ -6,7 +6,11 @@ using namespace std;
 class Hotel
 {
 	int amountOfstars;
-
+	string typeRoom;
+	//econom
+	//standart
+	//luxe
+	
 
 public:
 	Hotel();

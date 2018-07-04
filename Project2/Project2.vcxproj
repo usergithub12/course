@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\Source.cpp" />
+    <ClCompile Include="Country.cpp" />
     <ClCompile Include="Hotel.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Tour.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Country.h" />
     <ClInclude Include="Hotel.h" />
     <ClInclude Include="Tour.h" />
   </ItemGroup>
