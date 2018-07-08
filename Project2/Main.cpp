@@ -18,13 +18,15 @@ void main()
 	SetConsoleOutputCP(1251);
 	//Tour t;
 	//cin >> t;
-
-Country c;
-	c.InitCountry();
-
+	Transport *t=new Avia;
+	t->SetInfo();
+	t->ShowInfo();
+//Country c;
+//	c.InitCountry();
+	//c.CountryMenu();
+	//c.InitKurort();
 	//cout << c;
-
-	//Avia h;
+		//Avia h;
 	//int choice=1;
 	//cin >> choice;
 	//switch (choice)
@@ -37,6 +39,9 @@ Country c;
 	////case 1:
 	////case 1:
 	//}
+
+
+
 
 	system("pause");
 

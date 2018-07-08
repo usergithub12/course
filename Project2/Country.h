@@ -10,15 +10,16 @@ using namespace std;
 class Country
 {
 	string _nameofCountry;
+	string _kurort;
 public:
 	Country();
 	void InitCountry();
 	friend ostream& operator <<(ostream& os, Country c);
-
+	void InitKurort();
 	void SetPos(int x, int y);
 
 	string & GetName();
-		
+	void CountryMenu();
 	~Country();
 };
 
