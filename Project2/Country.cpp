@@ -41,9 +41,14 @@ void Country::InitCountry()
 			}
 			
 	}
-
-	
-	
+	in.seekg(0);
+	int choice=0;
+	cin >> choice;
+	for (size_t i = 0; i < choice; i++)
+	{
+		getline(in, _nameofCountry);
+	}
+	cout << _nameofCountry;
 			
 	in.close();
 }
@@ -51,14 +56,26 @@ void Country::InitCountry()
 
 void Country::InitKurort()
 {
+	system("cls");
 	ifstream in("base.txt");
 	
+	
 	while (!in.eof()) {
-		getline(in, _kurort, ';');
-		if ((_kurort.find(_nameofCountry, 0)))
-		{
+		    getline(in, _kurort, '\n');
+	        getline(in, _kurort, ':');
+			if(_nameofCountry==_kurort)
+			{
+			getline(in, _kurort, ';');
+			
 			cout << _kurort << endl;
-		}
+			break;
+		    }
+			else
+			{
+				getline(in, _kurort, ';');
+			}
+			//break;
+			//in.seekg(0);
 	}
 			in.close();
 

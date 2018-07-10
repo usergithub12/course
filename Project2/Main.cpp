@@ -17,14 +17,19 @@ void main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	//Tour t;
+	//t.SetInfo();
+	//t.ShowInfo();
 	//cin >> t;
+	system("mode 140 , 50");
 	Transport *t=new Avia;
 	t->SetInfo();
 	t->ShowInfo();
-//Country c;
-//	c.InitCountry();
+	system("pause");
+
+Country c;
+	c.InitCountry();
 	//c.CountryMenu();
-	//c.InitKurort();
+	c.InitKurort();
 	//cout << c;
 		//Avia h;
 	//int choice=1;

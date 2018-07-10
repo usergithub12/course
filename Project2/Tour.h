@@ -1,10 +1,12 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Hotel.h"
 using namespace std;
 
-class Tour
+class Tour:public Hotel
 {
+protected:
 	string _way;
 	string _startplace;
 	string _endplace;
@@ -18,7 +20,8 @@ public:
 	Tour();
 	friend ostream &operator << (ostream&os, Tour p);
 	friend istream &operator >> (istream&is, Tour p);
-
+	virtual void SetInfo();
+	virtual void ShowInfo();
 	~Tour();
 };
 

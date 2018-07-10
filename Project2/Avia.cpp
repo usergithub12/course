@@ -8,21 +8,14 @@ Avia::Avia()
 
 void Avia::ShowInfo()
 {
-	cout << "Дата виїзду : " << start << endl;
-	cout << "Дата повернення" << end << endl;
-	cout << "Кількість туристів: " << amountofTourists << endl;
+	Transport::ShowInfo();
 	cout << "Класс: " << tickettype << endl;
 
 }
 
 void Avia::SetInfo()
 {
-	cout << "Введіть дату початку: " << endl;
-	cin >> start;
-	cout << "Введіть дату прибуття: " << endl;
-	cin >> end;
-	cout << "Введіть кількість туристів: " << endl;
-	cin >> amountofTourists;
+	Transport::SetInfo();
 
 	int choice;
 	cout << "Виберіть клас: " << endl;

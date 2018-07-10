@@ -10,7 +10,7 @@ void Transport::ShowInfo()
 {
 
 	cout << "Дата виїзду : "  << start << endl;
-	cout << "Дата повернення"  << end << endl;
+	cout << "Дата повернення: "  << end << endl;
 	cout << "Кількість туристів: "  <<  amountofTourists<< endl;
 }
 

@@ -14,6 +14,8 @@ class Hotel
 
 public:
 	Hotel();
+	virtual void SetInfo();
+	virtual void ShowInfo();
 	~Hotel();
 };
 
