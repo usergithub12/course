@@ -7,8 +7,7 @@ class Transport
 protected:
 	string start;
 	string end;
-	/*string sdata;
-	string edata;*/
+	
 	int amountofTourists;
 public:
 	Transport();

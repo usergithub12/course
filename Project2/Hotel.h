@@ -5,6 +5,7 @@ using namespace std;
 
 class Hotel
 {
+protected:
 	int amountOfstars;
 	string typeRoom;
 	//econom

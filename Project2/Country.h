@@ -9,6 +9,7 @@ using namespace std;
 
 class Country
 {
+protected:
 	string _nameofCountry;
 	string _kurort;
 public:
@@ -19,7 +20,7 @@ public:
 	void SetPos(int x, int y);
 
 	string & GetName();
-	void CountryMenu();
+
 	~Country();
 };
 
