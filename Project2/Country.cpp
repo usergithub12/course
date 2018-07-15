@@ -8,6 +8,7 @@ Country::Country()
 
 void Country::InitCountry()
 {
+	system("cls");
 	ifstream in("countries.txt");
 	int x = 30;
 	int y = 1;
@@ -60,7 +61,8 @@ void Country::InitKurort()
 	ifstream in("base.txt");
 	
 	
-	while (!in.eof()) {
+	while (!in.eof()) 
+	{
 		    getline(in, _kurort, '\n');
 	        getline(in, _kurort, ':');
 			if(_nameofCountry==_kurort)
@@ -74,8 +76,6 @@ void Country::InitKurort()
 			{
 				getline(in, _kurort, ';');
 			}
-			//break;
-			//in.seekg(0);
 	}
 			in.close();
 

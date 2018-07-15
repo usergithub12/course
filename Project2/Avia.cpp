@@ -34,6 +34,22 @@ void Avia::SetInfo()
 
 }
 
+void Avia::SaveToFile()
+{
+	Transport::SaveToFile();
+	ofstream out("tour.txt", ios_base::app);
+
+
+	out << tickettype << ':';
+	
+
+	//out << tickettype;
+	out.close();
+
+}
+
+
+
 
 
 

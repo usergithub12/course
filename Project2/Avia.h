@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include "Transport.h"
 #include <conio.h>
+#include <fstream>
 using namespace std;
 
 class Avia:public Transport
@@ -16,7 +17,7 @@ public:
 	Avia();
 	virtual void ShowInfo();
 	virtual void SetInfo();
-		
+	virtual void SaveToFile();
 	~Avia();
 };
 

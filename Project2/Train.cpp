@@ -47,6 +47,20 @@ void Train::SetInfo()
 
 }
 
+void Train::SaveToFile()
+{
+	
+		Transport::SaveToFile();
+		ofstream out("tour.txt", ios_base::app);
+
+		out << tickettype << ':';
+
+		//out << tickettype;
+		out.close();
+
+	
+}
+
 Train::~Train()
 {
 }

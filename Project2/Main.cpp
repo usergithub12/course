@@ -4,6 +4,7 @@
 #include "Country.h"
 #include "Avia.h"
 #include <Windows.h>
+#include <forward_list>
 using namespace std;
 void SetPos(int x, int y)
 {
@@ -16,23 +17,19 @@ void main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	system("mode 140 , 50");
-
-
-
-
+	system("mode 140 , 60");
 
 	Tour t;
+
 	t.SetInfo();
 	t.ShowInfo();
+	forward_list<Tour>list;
+	list.push_front(t);
 	
-
+	t.SaveToFile();
 	system("pause");
+	system("cls");
 
-Country c;
-	c.InitCountry();
-	//c.CountryMenu();
-	c.InitKurort();
 	
 
 

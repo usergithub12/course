@@ -7,16 +7,15 @@
 #include "Avtobus.h"
 #include"Train.h"
 #include "Country.h"
+#include <fstream>
 using namespace std;
 
-class Tour:public Transport,public Hotel
+class Tour:public Transport,public Hotel,public Country
 {
-
 protected:
 	Transport * t;
-	
-	
-	Country c;
+	string typetransport;
+	Avia m;
 
 	/*string _way;
 	string _startplace;
@@ -29,10 +28,11 @@ protected:
 */
 public:
 	Tour();
-	/*friend ostream &operator << (ostream&os, Tour p);
-	friend istream &operator >> (istream&is, Tour p);*/
+	friend ostream &operator << (ostream&os, Tour p);
+	//friend istream &operator >> (istream&is, Tour p);
 	virtual void SetInfo();
 	virtual void ShowInfo();
+	void SaveToFile();
 	~Tour();
 };
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 class Transport
 {
@@ -13,6 +14,8 @@ public:
 	Transport();
 	virtual void ShowInfo();
 	virtual void SetInfo();
+	virtual void SaveToFile();
+
 	~Transport();
 };
 

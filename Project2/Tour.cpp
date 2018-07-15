@@ -5,20 +5,19 @@
 Tour::Tour()
 {
 }
-//
-//ostream &operator << (ostream&os, Tour p)
-//{
-//
-//	os << "Кількість вільних місць: " << p.amountOfseats << endl;
-//	os << "Кількість туристів: " << p.amountOftourist << endl;
-//	os << "Дата кінця туру: " << p.dateEnd << endl;
-//	os << "Дата початку туру" << p.dateStart << endl;
-//	os << "Ціна: " << p.price << endl;
-//	os << "Звідки: " << p._endplace << endl;
-//	os << "Куди: " << p._startplace << endl;
-//	os << "Шлях: " << p._way << endl;
-//	return os;
-//}
+
+ostream &operator << (ostream&os, Tour p)
+{
+
+	os << "Кількість вільних місць: " << p.amountOfstars << endl;
+	os << "Кількість туристів: " << p.amountofTourists << endl;
+	os << "Дата кінця туру: " << p.end << endl;
+	os << "Дата початку туру" << p.start << endl;
+	os << "Ціна: " << p.typeRoom << endl;
+	os << "Звідки: " << p.typetransport << endl;
+	
+	return os;
+}
 //istream &operator >> (istream & is, Tour p)
 //{
 //	cout << "Кількість вільних місць: " << endl;
@@ -55,34 +54,63 @@ void Tour::SetInfo()
 	cout << "2 - Автобус" << endl;
 	cout << "3 - Поїзд" << endl;
 	cin >> choice;
-	
+
 	switch (choice)
 	{
 	case 1:
 		t = new Avia;
+		typetransport = "Авіа";
+		t->SetInfo();
+		m.SaveToFile();
+	
 		break;
 	case 2:
 		t = new Avtobus;
+		typetransport = "Автобус";
+		t->SetInfo();
+		Transport::SaveToFile();
+	
 		break;
 	case 3:
 		t = new Train;
+		typetransport = "Поїзд";
+		t->SetInfo();
+	Transport::SaveToFile();
+		
 		break;
 	default:
 		break;
 	}
-	t->SetInfo();
-	c.InitCountry();
-	c.InitKurort();
-
+	system("cls");
+	Country::InitCountry();
+	Country::InitKurort();
+	
 
 }
 
 void Tour::ShowInfo()
 {
-	
-	
 	Hotel::ShowInfo();
 	t->ShowInfo();
+	cout << "Транспорт: " << typetransport<< endl;
+}
+
+void Tour::SaveToFile()
+{
+	ofstream out("tour.txt",ios_base::trunc);
+	out << start << ':';
+	out << end << ':';
+
+	out << amountofTourists << ':';
+	out << typetransport << ':';
+	out << amountOfstars << ':';
+	out << _nameofCountry << ':';
+	out<< _kurort << ':';
+	out << typeRoom << ';';
+	
+	//out << tickettype;
+	out.close();
+
 }
 
 Tour::~Tour()
