@@ -68,10 +68,13 @@ void Tour::SetInfo()
 
 void Tour::ShowInfo()
 {
-	Hotel::ShowInfo();
-	t->ShowInfo();
-	Country::ShowInfo();
-	cout << "Транспорт: " << typetransport<< endl;
+	if (amountOfstars != 0)
+	{
+		Hotel::ShowInfo();
+		t->ShowInfo();
+		Country::ShowInfo();
+		cout << "Транспорт: " << typetransport << endl;
+	}
 }
 
 void Tour::SaveToFile()
