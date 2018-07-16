@@ -11,7 +11,7 @@
 using namespace std;
 
 
-	//int price=10000;
+	
 class Tour:public Transport,public Hotel,public Country
 {
 protected:

@@ -35,16 +35,11 @@ void main()
 
 
 
-	/*	time_t rawtime;
-		struct tm * timeinfo;
-
-		time(&rawtime);
-		timeinfo = localtime(&rawtime);
-		cout<<"Точний час: "<< asctime(timeinfo);*/
+	
 
 	
 	
-	system("pause");
+
 
 	forward_list<Tour>list;
 	while (true)
@@ -74,8 +69,8 @@ void main()
 			f.HotTour();
 			system("pause");
 			break;
-		case '13':
-			return;
+		case 4:
+			return ;
 			break;
 		default:
 			break;
@@ -97,23 +92,29 @@ void main()
 
 		int choice = 0;
 		string menu[5];
+
 		menu[0] = "Додати тур";
 		menu[1] = "Країни та курорти";
 		menu[2] = "Показати тури";
 		menu[3] = "Гарячі тури";
-		menu[4] = "Exit";
+		menu[4] = "Вихід";
 
 
 		SetPos(20, 20);
 		while (true)
 		{
 			system("cls");
-
+			
+			time_t rawtime;
+			struct tm * timeinfo;
+			time(&rawtime);
+			timeinfo = localtime(&rawtime);
+			cout << "Точний час: " << asctime(timeinfo);
 
 			int x = 40;
 			int y = 10;
 			SetPos(x, y);
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < 5; i++)
 			{
 				//SetColor(11);
 

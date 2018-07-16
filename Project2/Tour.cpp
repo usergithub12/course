@@ -41,7 +41,6 @@ void Tour::SetInfo()
 		typetransport = "Авіа";
 		t->SetInfo();
 		t->SaveToFile();
-		//price =+ 1000;
 	
 		break;
 	case 2:
@@ -49,14 +48,13 @@ void Tour::SetInfo()
 		typetransport = "Автобус";
 		t->SetInfo();
 		t->SaveToFile();
-	//	price = +500;
+	
 		break;
 	case 3:
 		t = new Train;
 		typetransport = "Поїзд";
 		t->SetInfo();
 		t->SaveToFile();
-		//price = +250;
 		break;
 	default:
 		break;
@@ -84,9 +82,6 @@ void Tour::SaveToFile()
 	out << typetransport << ':';
 	out << _nameofCountry << ':';
 	out<< _kurort << ':';
-	
-	
-	
 	out.close();
 
 }
@@ -96,7 +91,7 @@ void Tour::ReadFromFile()
 	ifstream in("tour.txt");
 	
 	    getline(in, typeRoom, ':');
-	//	in >> amountOfstars;
+		in >> amountOfstars;
 		getline(in, typetransport, ':');
 		getline(in, _nameofCountry, ':');
 		
