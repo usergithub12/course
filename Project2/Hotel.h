@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 class Hotel
@@ -8,15 +9,14 @@ class Hotel
 protected:
 	int amountOfstars;
 	string typeRoom;
-	//econom
-	//standart
-	//luxe
+	
 	
 
 public:
 	Hotel();
 	virtual void SetInfo();
 	virtual void ShowInfo();
+	virtual void SaveToFile();
 	~Hotel();
 };
 

@@ -11,8 +11,6 @@ class Avia:public Transport
 {
 	string tickettype;
 
-	// + в одну сторону чи туда і назад
-
 public:
 	Avia();
 	virtual void ShowInfo();

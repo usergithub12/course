@@ -41,9 +41,7 @@ void Avia::SaveToFile()
 
 
 	out << tickettype << ':';
-	
 
-	//out << tickettype;
 	out.close();
 
 }

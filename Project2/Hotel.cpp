@@ -39,6 +39,20 @@ void Hotel::ShowInfo()
 	cout << "“ип к≥мнати: " << typeRoom << endl;
 }
 
+void Hotel::SaveToFile()
+{
+	ofstream out("tour.txt", ios_base::app);
+
+	out << amountOfstars << ':';
+	out << typeRoom << ':';
+
+
+	out.close();
+
+}
+
+
+
 
 Hotel::~Hotel()
 {

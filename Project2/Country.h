@@ -18,7 +18,7 @@ public:
 	friend ostream& operator <<(ostream& os, Country c);
 	void InitKurort();
 	void SetPos(int x, int y);
-
+	virtual void ShowInfo();
 	string & GetName();
 
 	~Country();

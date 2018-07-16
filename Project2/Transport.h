@@ -6,8 +6,12 @@ using namespace std;
 class Transport
 {
 protected:
-	string start;
-	string end;
+	int dstart;
+	int mstart;
+	int ystart;
+	int dend;
+	int mend;
+	int yend;
 	
 	int amountofTourists;
 public:

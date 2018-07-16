@@ -9,36 +9,15 @@ Tour::Tour()
 ostream &operator << (ostream&os, Tour p)
 {
 
-	os << "Кількість вільних місць: " << p.amountOfstars << endl;
+	os << "Кількість зірок: " << p.amountOfstars << endl;
 	os << "Кількість туристів: " << p.amountofTourists << endl;
-	os << "Дата кінця туру: " << p.end << endl;
-	os << "Дата початку туру" << p.start << endl;
-	os << "Ціна: " << p.typeRoom << endl;
-	os << "Звідки: " << p.typetransport << endl;
+//	os << "Дата початку туру" << p.dstart << p << endl;
+	//os << "Дата кінця туру: " << p.end << endl;
+	os << "Тип кімнати: " << p.typeRoom << endl;
+	os << "Тип транспорту: " << p.typetransport << endl;
 	
 	return os;
 }
-//istream &operator >> (istream & is, Tour p)
-//{
-//	cout << "Кількість вільних місць: " << endl;
-//	is >> p.amountOfseats;
-//	cout << "Кількість туристів: " << endl;
-//	is >> p.amountOftourist;
-//	cout << "Дата кінця туру: " << endl;
-//	is >> p.dateEnd;;
-//	cout << "Дата початку туру" << endl;
-//	is >> p.dateStart;
-//	cout << "Ціна: " << endl;
-//	is >> p.price;
-//	cout << "Звідки: " << endl;
-//	is >> p._endplace;
-//	cout << "Куди: " << endl;
-//	is >> p._startplace;
-//	cout << "Шлях: " << endl;
-//	is >> p._way;
-//	return is;
-//}
-
 
 
 
@@ -61,22 +40,23 @@ void Tour::SetInfo()
 		t = new Avia;
 		typetransport = "Авіа";
 		t->SetInfo();
-		m.SaveToFile();
+		t->SaveToFile();
+		//price =+ 1000;
 	
 		break;
 	case 2:
 		t = new Avtobus;
 		typetransport = "Автобус";
 		t->SetInfo();
-		Transport::SaveToFile();
-	
+		t->SaveToFile();
+	//	price = +500;
 		break;
 	case 3:
 		t = new Train;
 		typetransport = "Поїзд";
 		t->SetInfo();
-	Transport::SaveToFile();
-		
+		t->SaveToFile();
+		//price = +250;
 		break;
 	default:
 		break;
@@ -92,24 +72,86 @@ void Tour::ShowInfo()
 {
 	Hotel::ShowInfo();
 	t->ShowInfo();
+	Country::ShowInfo();
 	cout << "Транспорт: " << typetransport<< endl;
 }
 
 void Tour::SaveToFile()
 {
-	ofstream out("tour.txt",ios_base::trunc);
-	out << start << ':';
-	out << end << ':';
+	ofstream out("tour.txt",ios_base::app);
 
-	out << amountofTourists << ':';
+	Hotel::SaveToFile();
 	out << typetransport << ':';
-	out << amountOfstars << ':';
 	out << _nameofCountry << ':';
 	out<< _kurort << ':';
-	out << typeRoom << ';';
 	
-	//out << tickettype;
+	
+	
 	out.close();
+
+}
+
+void Tour::ReadFromFile()
+{
+	ifstream in("tour.txt");
+	
+	    getline(in, typeRoom, ':');
+	//	in >> amountOfstars;
+		getline(in, typetransport, ':');
+		getline(in, _nameofCountry, ':');
+		
+		getline(in, _kurort, ':');
+		
+
+
+	in.close();
+	
+
+}
+
+void Tour::HotTour()
+{
+	system("cls");
+	ifstream in("ht.txt");
+
+	string _buf;
+	
+	int x=50; int y=0;
+	int x1 = 105;
+	int y1 = 0;
+	
+	for (int i = 0; i < 150; i++)
+	{
+		SetColor(4);
+		getline(in, _buf);
+	
+		if (i%5==0) { SetColor(4); }
+		else {
+			SetColor(7);
+		}
+
+		if (i < 50)
+		{
+			cout<< _buf << endl;
+
+		}
+		if (i>49 && i<100)
+		{
+			SetPos(x, y);
+			cout << _buf << endl;
+			y += 1;
+		}
+		if (i>99&& i<150)
+		{
+			SetPos(x1, y1);
+			cout  << _buf << endl;
+			y1 += 1;
+		}
+		
+
+	}
+	in.close();
+	
 
 }
 

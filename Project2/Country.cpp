@@ -90,6 +90,12 @@ void Country::SetPos(int x, int y)
 	
 }
 
+void Country::ShowInfo()
+{
+	cout << _nameofCountry << endl;
+	cout << _kurort << endl;
+}
+
 string & Country::GetName()
 {
 	return _nameofCountry;
