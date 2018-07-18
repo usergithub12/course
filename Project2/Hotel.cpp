@@ -8,6 +8,7 @@ Hotel::Hotel()
 
 void Hotel::SetInfo()
 {
+	_price += 500;
 	cout << "Введіть кількість зірок: " << endl;
 	cin >> amountOfstars;
 	int choice=0;
@@ -20,12 +21,15 @@ void Hotel::SetInfo()
 	{
 	case 1:
 		typeRoom = "Економ";
+		_price += 200;
 		break;
 	case 2:
 		typeRoom = "Стандарт";
+		_price += 500;
 		break;
 	case 3:
 		typeRoom = "Люкс";
+		_price += 1000;
 		break;
 		
 	default:
@@ -49,6 +53,15 @@ void Hotel::SaveToFile()
 
 	out.close();
 
+}
+//
+//int Hotel::GetStars()
+//{
+//	return amountOfstars;
+//}
+int Hotel::GetPrice()
+{
+	return _price;
 }
 
 

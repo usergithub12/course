@@ -6,7 +6,8 @@
 #include "Avia.h"
 #include <Windows.h>
 #include <iomanip>
-#include <forward_list>
+//#include <forward_list>
+#include <list>
 #include <iterator>
 
 using namespace std;
@@ -41,7 +42,7 @@ void main()
 	
 
 
-	forward_list<Tour>list;
+	list<Tour>list;
 	while (true)
 	{
 		switch (Menu())
@@ -58,11 +59,17 @@ void main()
 			break;
 		case 2:
 		//	f.ReadFromFile();
-			//copy(
-			//	list.begin(), //Ітератор початку вектора
-			//	list.end(),   //Ітератор кінця вектора
-			//	ostream_iterator<Tour>(cout, " "));
-			f.ShowInfo();
+			copy(
+				list.begin(), //Ітератор початку вектора
+				list.end(),   //Ітератор кінця вектора
+				ostream_iterator<Tour>(cout, " "));
+
+									
+				
+			
+
+			//f.ShowInfo();
+			
 			system("pause");
 			break;
 		case 3:
@@ -105,12 +112,12 @@ void main()
 		{
 			system("cls");
 			
-			time_t rawtime;
-			struct tm * timeinfo;
-			time(&rawtime);
-			timeinfo = localtime(&rawtime);
-			cout << "Точний час: " << asctime(timeinfo);
-
+				time_t rawtime;
+				struct tm * timeinfo;
+				time(&rawtime);
+				timeinfo = localtime(&rawtime);
+				cout << "Точний час: " << asctime(timeinfo);
+			
 			int x = 40;
 			int y = 10;
 			SetPos(x, y);

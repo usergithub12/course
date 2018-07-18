@@ -9,13 +9,13 @@ Tour::Tour()
 ostream &operator << (ostream&os, Tour p)
 {
 
-	os << "Кількість зірок: " << p.amountOfstars << endl;
+	os << "Кількість зірок: " << p.GetStars() << endl;
 	os << "Кількість туристів: " << p.amountofTourists << endl;
-//	os << "Дата початку туру" << p.dstart << p << endl;
-	//os << "Дата кінця туру: " << p.end << endl;
+    os << "Дата початку туру" << p.dstart << "/" << p.mstart << "/" << p.ystart << endl;
+	os << "Дата кінця туру: " << p.dend << "/" << p.mend<< "/" << p.yend << endl;
 	os << "Тип кімнати: " << p.typeRoom << endl;
 	os << "Тип транспорту: " << p.typetransport << endl;
-	
+
 	return os;
 }
 
@@ -27,6 +27,8 @@ void Tour::SetInfo()
 {
 	cout << "\t\tВибір готелю " << endl;
 	Hotel::SetInfo();
+	price += Hotel::GetPrice();
+	
 	cout << "\t\tОберіть транспорт " << endl;
 	int choice = 0;
 	cout << "1 - Авіа" << endl;
@@ -40,6 +42,7 @@ void Tour::SetInfo()
 		t = new Avia;
 		typetransport = "Авіа";
 		t->SetInfo();
+	price += t->GetPrice();
 		t->SaveToFile();
 	
 		break;
@@ -47,6 +50,7 @@ void Tour::SetInfo()
 		t = new Avtobus;
 		typetransport = "Автобус";
 		t->SetInfo();
+		price += t->GetPrice();
 		t->SaveToFile();
 	
 		break;
@@ -54,11 +58,14 @@ void Tour::SetInfo()
 		t = new Train;
 		typetransport = "Поїзд";
 		t->SetInfo();
+		price += t->GetPrice();
 		t->SaveToFile();
 		break;
 	default:
 		break;
 	}
+	cout << "Ціна: " << price << endl;
+	system("pause");
 	system("cls");
 	Country::InitCountry();
 	Country::InitKurort();
@@ -74,6 +81,7 @@ void Tour::ShowInfo()
 		t->ShowInfo();
 		Country::ShowInfo();
 		cout << "Транспорт: " << typetransport << endl;
+	    cout<<"Ціна: " <<  price << endl;
 	}
 }
 
@@ -106,6 +114,11 @@ void Tour::ReadFromFile()
 	
 
 }
+//
+//int Tour::GetPrice()
+//{
+//	return price;
+//}
 
 void Tour::HotTour()
 {

@@ -9,6 +9,7 @@ public:
 	virtual void ShowInfo();
 	virtual void SetInfo();
 	 void SaveToFile();
+	virtual int GetPrice();
 	~Train();
 };
 

@@ -10,14 +10,13 @@
 #include <fstream>
 using namespace std;
 
-
 	
 class Tour:public Transport,public Hotel,public Country
 {
 protected:
 	Transport * t= new Transport;
 	string typetransport;
-	
+	int price = 10000;
 
 public:
 	Tour();
@@ -25,12 +24,14 @@ public:
 	
 	virtual void SetInfo();
 	virtual void ShowInfo();
-virtual	void SaveToFile();
-void ReadFromFile();
-void SetColor(int col)
+	virtual	void SaveToFile();
+	void ReadFromFile();
+	void SetColor(int col)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), col);
 }
+
+//int GetPrice();
 void HotTour();
 	~Tour();
 };

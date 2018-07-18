@@ -6,6 +6,7 @@ public:
 	Avtobus();
 	virtual void ShowInfo();
 	virtual void SetInfo();
+	virtual  int GetPrice();
 	~Avtobus();
 };
 

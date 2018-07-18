@@ -147,6 +147,11 @@ void Transport::SaveToFile()
 
 }
 
+int Transport::GetPrice()
+{
+	return _price;
+}
+
 
 Transport::~Transport()
 {

@@ -4,6 +4,7 @@
 
 Avia::Avia()
 {
+	_price = 0;
 }
 
 void Avia::ShowInfo()
@@ -16,7 +17,7 @@ void Avia::ShowInfo()
 void Avia::SetInfo()
 {
 	Transport::SetInfo();
-
+	_price += 1000;
 	int choice;
 	cout << "Виберіть клас: " << endl;
 	cout << "1 - Економ" << endl;
@@ -26,9 +27,11 @@ void Avia::SetInfo()
 	{
 	case 1: 
 		tickettype = "Економ";
+		_price += 500;
 		break;
 	case 2:
 		tickettype = "Бізнес";
+		_price += 1500;
 		break;
 	}
 
@@ -46,7 +49,10 @@ void Avia::SaveToFile()
 
 }
 
-
+int Avia::GetPrice()
+{
+	return _price;
+}
 
 
 
