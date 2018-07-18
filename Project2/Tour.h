@@ -25,13 +25,19 @@ public:
 	virtual void SetInfo();
 	virtual void ShowInfo();
 	virtual	void SaveToFile();
-	void ReadFromFile();
-	void SetColor(int col)
+    virtual	void ReadFromFile();
+		
+void SetColor(int col)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), col);
 }
-
-//int GetPrice();
+void SetPos(int x, int y)
+{
+	COORD c;
+	c.X = x;
+	c.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+}
 void HotTour();
 	~Tour();
 };

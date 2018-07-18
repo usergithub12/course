@@ -24,6 +24,7 @@
     <ClCompile Include="Country.cpp" />
     <ClCompile Include="Hotel.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Tour.cpp" />
     <ClCompile Include="Train.cpp" />
     <ClCompile Include="Transport.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="Avtobus.h" />
     <ClInclude Include="Country.h" />
     <ClInclude Include="Hotel.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Tour.h" />
     <ClInclude Include="Train.h" />
     <ClInclude Include="Transport.h" />

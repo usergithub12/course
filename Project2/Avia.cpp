@@ -49,6 +49,14 @@ void Avia::SaveToFile()
 
 }
 
+void Avia::ReadFromFile()
+{
+	Transport::ReadFromFile();
+	ifstream in("tour.txt");
+		getline(in, tickettype, ':');
+	in.close();
+}
+
 int Avia::GetPrice()
 {
 	return _price;

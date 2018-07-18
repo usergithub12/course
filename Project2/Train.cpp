@@ -1,7 +1,6 @@
 #include "Train.h"
 
 
-
 Train::Train()
 {
 }
@@ -54,16 +53,19 @@ void Train::SetInfo()
 
 void Train::SaveToFile()
 {
-	
-		Transport::SaveToFile();
+	Transport::SaveToFile();
+
 		ofstream out("tour.txt", ios_base::app);
-
 		out << tickettype << ':';
-
-		//out << tickettype;
 		out.close();
+}
 
-	
+void Train::ReadFromFile()
+{
+	Transport::ReadFromFile();
+	ifstream in("tour.txt");
+	getline(in, tickettype, ':');
+	in.close();
 }
 
 int Train::GetPrice()

@@ -10,11 +10,13 @@ void Country::InitCountry()
 {
 	system("cls");
 	ifstream in("countries.txt");
+
 	int x = 30;
 	int y = 1;
-			int x1=70;
-			int y1=1;
-			cout << "Enter country(1-142): " << endl;
+	int x1 = 70;
+	int y1 = 1;
+
+	cout << "Enter country(1-142): " << endl;
 	for (int i = 0; i < 142; i++)
 	{
 		getline(in, _nameofCountry);
@@ -44,14 +46,18 @@ void Country::InitCountry()
 	}
 	in.seekg(0);
 	int choice=0;
-	cin >> choice;
+	
+		cin >> choice;
+	
+	
 	for (size_t i = 0; i < choice; i++)
 	{
 		getline(in, _nameofCountry);
 	}
-	cout << _nameofCountry;
 			
 	in.close();
+	
+	
 }
 
 
@@ -77,7 +83,7 @@ void Country::InitKurort()
 				getline(in, _kurort, ';');
 			}
 	}
-			in.close();
+	in.close();
 
 }
 
@@ -92,24 +98,26 @@ void Country::SetPos(int x, int y)
 
 void Country::ShowInfo()
 {
-	cout << _nameofCountry << endl;
-	cout << _kurort << endl;
+	cout <<"Країна: "<< _nameofCountry << endl;
+	if (!_kurort.empty())
+	{
+		cout <<"Курорти:  " << _kurort << endl;
+	}
 }
 
 string & Country::GetName()
 {
 	return _nameofCountry;
-	// TODO: вставьте здесь оператор return
 }
 
 
-Country::~Country()
-{
-}
 
 ostream & operator<<(ostream & os, Country c)
 {
 	
 	os << c._nameofCountry << endl;
 	return os;
+}
+Country::~Country()
+{
 }

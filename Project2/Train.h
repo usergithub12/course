@@ -8,7 +8,8 @@ public:
 	Train();
 	virtual void ShowInfo();
 	virtual void SetInfo();
-	 void SaveToFile();
+	virtual void SaveToFile();
+	virtual void ReadFromFile();
 	virtual int GetPrice();
 	~Train();
 };

@@ -9,18 +9,17 @@ protected:
 	int dstart;
 	int mstart;
 	int ystart;
-	int dend;
-	int mend;
-	int yend;
-	
+		int dend;
+		int mend;
+		int yend;
 		int _price=0;
-
 	int amountofTourists;
 public:
 	Transport();
 	virtual void ShowInfo();
 	virtual void SetInfo();
 	virtual void SaveToFile();
+	virtual void ReadFromFile();
 	virtual int GetPrice();
 	~Transport();
 };

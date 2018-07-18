@@ -87,7 +87,7 @@ void Transport::SetInfo()
 			else
 				break;
 		}
-		catch (int i)//сюда передастся число 123
+		catch (int i)
 		{
 			cout << "Не правильно введений день!" << endl;
 		}
@@ -105,7 +105,7 @@ void Transport::SetInfo()
 			else
 				break;
 		}
-		catch (int i)//сюда передастся число 123
+		catch (int i)
 		{
 			cout << "Не правильно введений місяць!" << endl;
 		}
@@ -123,7 +123,7 @@ void Transport::SetInfo()
 			else
 				break;
 		}
-		catch (int i)//сюда передастся число 123
+		catch (int i)
 		{
 			cout << "Не правильно введений рік!" << endl;
 		}
@@ -142,9 +142,47 @@ void Transport::SaveToFile()
 	out << dend  << mend << yend<< ':';
 	out << amountofTourists << ':';
 
-	//out << tickettype;
 	out.close();
 
+}
+
+void Transport::ReadFromFile()
+{
+	ifstream in("tour.txt");
+	char _buf0[250];
+	char _buf1[250];
+	char _buf2[250];
+	char _buf3[250];
+	char _buf4[250];
+	char _buf5[250];
+	char _buf6[250];
+	char _buf7[250];
+
+in.getline(_buf0,':');
+dstart = atoi(_buf0);
+
+in.getline(_buf1, ':');
+mstart = atoi(_buf1);
+
+in.getline(_buf2, ':');
+ystart = atoi(_buf2);
+
+in.getline(_buf3, ':');
+mend = atoi(_buf3);
+
+in.getline(_buf4, ':');
+yend = atoi(_buf4);
+
+in.getline(_buf5, ':');
+_price = atoi(_buf5);
+
+in.getline(_buf6, ':');
+dend = atoi(_buf6);
+
+in.getline(_buf7, ':');
+amountofTourists = atoi(_buf7);
+
+	in.close();
 }
 
 int Transport::GetPrice()

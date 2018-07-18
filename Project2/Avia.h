@@ -16,6 +16,7 @@ public:
 	virtual void ShowInfo();
 	virtual void SetInfo();
 	virtual void SaveToFile();
+	virtual void ReadFromFile();
 	int GetPrice();
 	~Avia();
 };

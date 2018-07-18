@@ -16,24 +16,31 @@ void Hotel::SetInfo()
 	cout << "1. Економ" << endl;
 	cout << "2. Стандарт" << endl;
 	cout << "3. Люкс" << endl;
-	cin >> choice;
-	switch (choice)
+	while (true)
 	{
-	case 1:
-		typeRoom = "Економ";
-		_price += 200;
-		break;
-	case 2:
-		typeRoom = "Стандарт";
-		_price += 500;
-		break;
-	case 3:
-		typeRoom = "Люкс";
-		_price += 1000;
-		break;
-		
-	default:
-		break;
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1:
+			typeRoom = "Економ";
+			_price += 200;
+			break;
+		case 2:
+			typeRoom = "Стандарт";
+			_price += 500;
+			break;
+		case 3:
+			typeRoom = "Люкс";
+			_price += 1000;
+			break;
+
+		default:
+			cout << "Виберіть 1-3." << endl;
+			break;
+		}
+		if (choice <=3) { break; }
+	
 	}
 }
 
@@ -54,11 +61,7 @@ void Hotel::SaveToFile()
 	out.close();
 
 }
-//
-//int Hotel::GetStars()
-//{
-//	return amountOfstars;
-//}
+
 int Hotel::GetPrice()
 {
 	return _price;
