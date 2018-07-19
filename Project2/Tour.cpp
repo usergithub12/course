@@ -19,6 +19,8 @@ ostream &operator << (ostream&os, Tour p)
 }
 
 
+
+
 void Tour::SetInfo()
 {
 	cout << "\t\tВибір готелю " << endl;
@@ -42,23 +44,18 @@ void Tour::SetInfo()
 			typetransport = "Авіа";
 			t->SetInfo();
 			price += t->GetPrice();
-		//	t->SaveToFile();
-
 			break;
 		case 2:
 			t = new Avtobus;
 			typetransport = "Автобус";
 			t->SetInfo();
 			price += t->GetPrice();
-			//t->SaveToFile();
-
 			break;
 		case 3:
 			t = new Train;
 			typetransport = "Поїзд";
 			t->SetInfo();
 			price += t->GetPrice();
-			//t->SaveToFile();
 			break;
 		default:
 			cout << "Виберіть 1-3." << endl;
@@ -68,7 +65,7 @@ void Tour::SetInfo()
 	}
 		Country::InitCountry();
 		Country::InitKurort();
-		system("cls");
+		//system("cls");
 	}
 
 
@@ -81,27 +78,20 @@ void Tour::ShowInfo()
 		Hotel::ShowInfo();
 		t->ShowInfo();
 		Country::ShowInfo();
-		cout << "Транспорт: " << typetransport << endl;
+		cout <<"Транспорт: " << typetransport << endl;
 	    cout<<"Ціна: " <<  price << endl;
 	}
 }
+
 
 void Tour::SaveToFile()
 {
 	ofstream out("tour.txt",ios_base::app);
 
 	Hotel::SaveToFile();
-	//out << typetransport << ':';
-	//t->SaveToFile();
-	/*if (t == new Avia) { t->SaveToFile(); }
-	if (t == new Avtobus) { t->SaveToFile(); }
-	if (t == new Train) { t->SaveToFile(); }*/
 	out << price << ':';
 	out << _nameofCountry << ':';
 	out<< _kurort << ';';
-
-
-
 	out.close();
 
 }
@@ -111,53 +101,33 @@ void Tour::ReadFromFile()
 	
 		ifstream in("tour.txt");
 		char buf[250];	char buf1[250];
+		
 		while (!in.eof())
 		{
 			in.getline(buf, 250, ':');
 			amountOfstars = atoi(buf);
 			getline(in, typeRoom, ':');
-			//getline(in, typetransport, ':');
-			/*if (typetransport == "Авіа") { t = new Avia; }
-			if (typetransport == "Автобус") { t = new Avtobus; }
-			if (typetransport == "Поїзд") { t = new Train; }
-			t->ReadFromFile();*/
 			in.getline(buf1, 250, ':');
 			price = atoi(buf1);
 			getline(in, _nameofCountry, ':');
 			getline(in, _kurort, ';');
 			if (amountOfstars != 0)
 			{
+			
 				cout << "Кількість зірок: " << amountOfstars << endl;
 				cout << "Тип кімнати: " << typeRoom << endl;
-				//cout << "Транспорт: " << typetransport << endl;
-					/*	cout << "Дата виїзду : " << dstart << "/" << mstart << "/" << ystart << endl;
-						cout << "Дата повернення: " << dend << "/" << mend << "/" << yend << endl;*/
-						//	cout << "Кількість туристів: " << amountofTourists << endl;
 				cout << "Ціна: " << price << endl;
 				cout << _nameofCountry << endl;
 				cout << _kurort << endl;
 				cout << endl;
+
 			}
 		}
 			in.close();
 			system("pause");
-
-		
 	}
 
-	/*ifstream in("tour.txt");
 	
-	string buf;
-	while (!in.eof())
-	{
-		getline(in, buf, ';');
-	cout << buf;
-	}
-	in.close();
-
-	system("pause");
-	*/
-
 
 
 void Tour::HotTour()

@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "Hotel.h"
 #include"Tour.h"
@@ -17,47 +16,61 @@ void main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-
+	vector<Tour>::iterator it;
 	MainMenu m;
 
-	//system("mode 140 , 60");
-	Tour *f=new Tour;
+	system("mode 140 , 60");
+	vector<Tour> list;
+		int size = 0;
+	Tour *t = new Tour[size];
 	
-	vector<Tour>list;
 	while (true)
 	{
 		switch (m.Menu())
 		{
 		case 0:
-			f = new Tour;
-			f->SetInfo();
-			list.push_back(*f);
-			//t.ShowInfo();
-			f->SaveToFile();
+		size++;
+		t = new Tour[size];
+		t->SetInfo();
+		list.insert(list.end(), *t);
+		t->SaveToFile();
 			break;
 		case 1:
+			t->InitCountry();
+			t->InitKurort();
+			system("pause");
 			
-			f->InitCountry();
-			f->InitKurort();
-
-		
 			break;
 		case 2:
-			f->ReadFromFile();
-			
-			copy(
-				list.begin(), //≤тератор початку вектора
-				list.end(),   //≤тератор к≥нц€ вектора
-				ostream_iterator<Tour>(cout, " "));
-			
-			
-			system("pause");
+			for (size_t i = 0; i < size; i++)
+			{
+
+				cout << list[i] << endl;
+
+				system("pause");
+
+			}
+			t->ReadFromFile();
 			break;
 		case 3:
-			f->HotTour();
+			t->HotTour();
 			system("pause");
 			break;
 		case 4:
+			if (!list.empty())
+			{
+				switch (m.DelMenu())
+				{
+				case 0:
+					list.erase(list.begin());
+					break;
+				case 1:
+					list.pop_back();
+					break;
+				}
+			}
+		    break;
+		case 5:
 			return ;
 			break;
 		default:

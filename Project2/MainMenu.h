@@ -15,6 +15,9 @@ public:
 	int Menu();
 	void SetColor(int col);
 	void SetPos(int x, int y);
+	int DelMenu();
+
+	
 	~MainMenu();
 };
 
