@@ -27,25 +27,6 @@ public:
 	virtual void ShowInfo();
 	virtual	void SaveToFile();
     virtual	void ReadFromFile();
-	Tour& operator= (const Tour &p)
-	{
-		
-		amountOfstars = p.amountOfstars;
-		amountofTourists = p.amountofTourists;
-		dstart = p.dstart;
-		mstart = p.mstart;
-		ystart = p.ystart;
-		dend = p.dend;
-		mend = p.mend; 
-		yend = p.yend;
-		typeRoom = p.typeRoom;
-		typetransport = p.typetransport;
-		_nameofCountry = p._nameofCountry;
-		_kurort = p._kurort;
-
-		
-		return *this;
-	}
 	
 void SetColor(int col)
 {

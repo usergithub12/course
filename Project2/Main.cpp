@@ -22,35 +22,40 @@ void main()
 	system("mode 140 , 60");
 	vector<Tour> list;
 		int size = 0;
-	Tour *t = new Tour[size];
+	Tour *t = new Tour;
 	
 	while (true)
 	{
 		switch (m.Menu())
 		{
 		case 0:
-		size++;
-		t = new Tour[size];
-		t->SetInfo();
-		list.insert(list.end(), *t);
-		t->SaveToFile();
+			size++;
+			t = new Tour[size];
+			t->SetInfo();
+			list.insert(list.end(), *t);
+			t->SaveToFile();
 			break;
 		case 1:
 			t->InitCountry();
 			t->InitKurort();
 			system("pause");
-			
+
 			break;
 		case 2:
-			for (size_t i = 0; i < size; i++)
+			switch (m.ShowMenu())
 			{
+			case 0:
+				for (size_t i = 0; i < size; i++)
+				{
 
-				cout << list[i] << endl;
-
+					cout << list[i] << endl;
+				}
 				system("pause");
-
+				break;
+			case 1:
+				t->ReadFromFile();
+				break;
 			}
-			t->ReadFromFile();
 			break;
 		case 3:
 			t->HotTour();

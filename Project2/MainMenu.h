@@ -17,6 +17,7 @@ public:
 	void SetPos(int x, int y);
 	int DelMenu();
 
+	int ShowMenu();
 	
 	~MainMenu();
 };

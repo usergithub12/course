@@ -72,7 +72,7 @@ void Tour::SetInfo()
 
 void Tour::ShowInfo()
 {
-	system("cls");
+	//system("cls");
 	if (amountOfstars != 0)
 	{
 		Hotel::ShowInfo();

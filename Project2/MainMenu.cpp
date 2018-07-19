@@ -35,7 +35,7 @@ int MainMenu::Menu()
 		SetPos(x, y);
 		for (int i = 0; i < 6; i++)
 		{
-			//SetColor(11);
+			
 			if (choice == i)
 			{
 				SetColor(11);
@@ -157,6 +157,72 @@ int MainMenu::DelMenu()
 		}
 
 	}
+
+int MainMenu::ShowMenu()
+{
+
+	int choice = 0;
+	string menu[2];
+	menu[0] = "Показати всіх";
+	menu[1] = "Зчитати з файла";
+
+
+	SetPos(20, 20);
+	while (true)
+	{
+		system("cls");
+
+		time_t rawtime;
+		struct tm * timeinfo;
+		time(&rawtime);
+		timeinfo = localtime(&rawtime);
+		cout << "Точний час: " << asctime(timeinfo);
+
+		int x = 40;
+		int y = 10;
+		SetPos(x, y);
+		for (int i = 0; i < 2; i++)
+		{
+			if (choice == i)
+			{
+				SetColor(11);
+				SetPos(x, y);
+				cout << "->";
+			}
+
+			cout << "  ";
+			cout << i + 1 << ". " << menu[i] << endl;
+			SetPos(x, y += 2);
+			SetColor(7);
+
+		}
+
+		switch (_getch())
+		{
+		case 224:
+		{
+			switch (_getch())
+			{
+			case 80:
+				choice < 1 ? choice++ : choice = 0;
+				break;
+			case 72:
+				choice >0 ? choice-- : choice = 1;
+				break;
+			}
+			break;
+		}
+		case 13:
+		{
+			return choice;
+		}
+		case 27:
+			return -1;
+		}
+	}
+
+}
+
 
 
 
